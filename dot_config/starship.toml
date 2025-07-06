@@ -1,4 +1,17 @@
 add_newline = false
+
+[username]
+show_always = true
+style_user = "green bold"
+style_root = "red bold"
+format = "[$user]($style) "
+
+[container]
+symbol = "📦 "
+format = "[$symbol$name]($style) "
+style = "blue bold"
+disabled = false
+
 [bun]
 format = "via [$symbol]($style)"
 
