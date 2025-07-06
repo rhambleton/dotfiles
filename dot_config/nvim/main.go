@@ -3,10 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Stuff")
-	Goof(number)
+	fmt.Println("what")
 }
 
-func Goof(num int) {
+func Goof(num int) int {
 	fmt.Println(num)
+	num = num * 2 * 2
+	return num + 5
 }
