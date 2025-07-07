@@ -4,10 +4,15 @@ import "fmt"
 
 func main() {
 	fmt.Println("what")
+	number := 5
+
+	huh := Goof(number)
+	fmt.Println(huh)
 }
 
-func Goof(num int) int {
-	fmt.Println(num)
-	num = num * 2 * 2
-	return num + 5
+func Goof(int) int {
+	thing := 5
+	bung := thing * 2
+	hung := bung * 2
+	return hung
 }
