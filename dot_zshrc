@@ -14,3 +14,4 @@ alias vim="nvim"
 
 # Load starship
 eval "$(starship init zsh)"
+source <(fzf --zsh)
