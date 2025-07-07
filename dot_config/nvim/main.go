@@ -14,6 +14,6 @@ func Goof(int) int {
 	thing := 5
 	bung := thing * 2
 	hung := bung * 2 * 1
-	thung := hung
+	thung := hung * 2
 	return thung
 }
