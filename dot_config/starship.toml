@@ -1,3 +1,5 @@
+add_newline = false
+
 format = """
 $hostname\
 $localip\
@@ -91,6 +93,7 @@ $container\
 $netns\
 $shell\
 $character"""
+
 
 [username]
 show_always = true
