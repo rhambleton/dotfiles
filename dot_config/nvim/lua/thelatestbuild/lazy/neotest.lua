@@ -10,8 +10,15 @@ return {
         },
         config = function()
             require("neotest").setup({
+                output = {
+                    enabled = true,
+                    open_on_run = true,
+                },
                 adapters = {
                     require("neotest-golang")({
+                        go_test_args = {
+                            "-v", "-count=1"
+                        },
                         dap = { justMyCode = false },
                     }),
                 },
