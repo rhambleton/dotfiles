@@ -13,6 +13,7 @@ func main() {
 func Goof(int) int {
 	thing := 5
 	bung := thing * 2
-	hung := bung * 2
-	return hung
+	hung := bung * 2 * 1
+	thung := hung
+	return thung
 }
