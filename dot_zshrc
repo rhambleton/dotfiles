@@ -1,7 +1,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-bindkey -v
+# bindkey -v
 zstyle :compinstall filename '/home/devuser/.zshrc'
 
 autoload -Uz compinit
@@ -21,3 +21,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
+aql() {
+    docker run --rm --network verstappen_default aerospike/aerospike-tools aql --host aerospike-1 -o json -c "$*"
+}
