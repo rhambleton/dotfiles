@@ -7,9 +7,13 @@ return {
             "fredrikaverpil/neotest-golang",
             "nvim-lua/plenary.nvim",
             "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter"
+            "nvim-treesitter/nvim-treesitter",
+            "andythigpen/nvim-coverage",
         },
         config = function()
+            require("coverage").setup({
+                auto_reload = true
+            })
             require("neotest").setup({
                 output = {
                     enabled = true,
@@ -18,7 +22,7 @@ return {
                 adapters = {
                     require("neotest-golang")({
                         go_test_args = {
-                            "-v", "-count=1"
+                            "-v", "-count=1", "-coverprofile=coverage.out"
                         },
                         dap = { justMyCode = false },
                     }),
@@ -26,6 +30,7 @@ return {
             })
             vim.keymap.set("n", "<leader>tt", function()
                 require("neotest").run.run()
+                require("coverage").load(true)
             end, { desc = "Run Nearest Test" })
 
             vim.keymap.set("n", "<leader>to", function()
