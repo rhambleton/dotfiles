@@ -8,7 +8,7 @@ return {
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup {
-                ensure_installed = { "lua_ls", "gopls", "nil_ls" },
+                ensure_installed = { "lua_ls", "gopls" },
             }
             vim.diagnostic.config({
                 virtual_text = true, -- Shows errors inline
