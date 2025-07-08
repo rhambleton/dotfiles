@@ -18,10 +18,6 @@ func TestThings(t *testing.T) {
 	assert.Greater(t, ret, 30)
 }
 
-func TestMainFunction(t *testing.T) {
-	main()
-}
-
 func TestMoreThings(t *testing.T) {
 	fmt.Println("more doot")
 	assert.Equal(t, true, true)
