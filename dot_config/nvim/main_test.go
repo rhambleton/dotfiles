@@ -11,6 +11,7 @@ func TestThings(t *testing.T) {
 	fmt.Println("Doot")
 	assert.Equal(t, true, true)
 
+	assert.NotNil(t, 4)
 	assert.NotNil(t, ret)
 	fmt.Println("more stuff")
 	fmt.Println("value was ", ret)
