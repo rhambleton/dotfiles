@@ -1,13 +1,26 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "folke/tokyonight.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "nvim-lualine/lualine.nvim",
+        },
+        lazy = false,
         priority = 1000,
+        opts = {},
         config = function()
-            require("catppuccin").setup({
-                transparent_background = true
+            require("tokyonight").setup({
+                -- style = "night"
             })
-            vim.cmd.colorscheme "catppuccin-mocha"
+            require('lualine').setup {
+                options = {
+                    -- ... your lualine config
+                    theme = 'tokyonight-night'
+                    -- ... your lualine config
+                }
+            }
+            vim.cmd.colorscheme "tokyonight-night"
         end
     }
+
 }
