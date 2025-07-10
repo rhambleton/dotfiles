@@ -1,7 +1,7 @@
 require("thelatestbuild.remap")
 require("thelatestbuild.set")
 require("thelatestbuild.lazy_init")
-
+vim.opt.fillchars:append({ eob = " " })
 local augroup = vim.api.nvim_create_augroup
 local TheLatestBuildGroup = augroup('TheLatestBuild', {})
 
