@@ -2,7 +2,7 @@
 
 add_newline = false
 format = """
-$username\
+$container$username\
 $directory\
 $git_branch\
 $git_status\
@@ -50,6 +50,12 @@ Pictures = " "
 [fill]
 style = "fg:overlay"
 symbol = " "
+
+[container]
+symbol = "📦"
+style = "bg:overlay fg:iris"
+disabled = false
+format = "[](fg:overlay)[ $symbol ]($style)[](fg:overlay) "
 
 [git_branch]
 format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
