@@ -1,243 +1,409 @@
-add_newline = false
+"$schema" = 'https://starship.rs/config-schema.json'
 
+add_newline = false
 format = """
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
+$username\
 $directory\
-$vcsh\
-$fossil_branch\
-$fossil_metrics\
 $git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
 $git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
+$fill\
 $c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
 $elixir\
 $elm\
-$erlang\
-$fennel\
-$gleam\
 $golang\
-$guix_shell\
 $haskell\
-$haxe\
-$helm\
 $java\
 $julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
 $nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$quarto\
-$raku\
-$rlang\
-$red\
-$ruby\
+$nim\
 $rust\
 $scala\
-$solidity\
-$swift\
-$terraform\
-$typst\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
 $conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$nats\
-$direnv\
-$env_var\
-$mise\
-$crystal\
-$custom\
-$sudo\
-$cmd_duration\
-$line_break\
-$jobs\
-$battery\
-$time\
-$status\
-$os\
-$username\
-$container\
-$netns\
-$shell\
-$character"""
+$python\
+$time\n  \
+[󱞪](fg:iris) \
+"""
 
+palette = "rose-pine-moon"
+
+[palettes.rose-pine-moon]
+overlay = '#393552'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ea9a97'
+pine = '#3e8fb0'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
+
+[directory]
+format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
+style = "bg:overlay fg:pine"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[fill]
+style = "fg:overlay"
+symbol = " "
+
+[git_branch]
+format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
+style = "bg:overlay fg:foam"
+symbol = ""
+
+[git_status]
+disabled = false
+style = "bg:overlay fg:love"
+format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+up_to_date = '[ ✓ ](bg:overlay fg:iris)'
+untracked = '[?\($count\)](bg:overlay fg:gold)'
+stashed = '[\$](bg:overlay fg:iris)'
+modified = '[!\($count\)](bg:overlay fg:gold)'
+renamed = '[»\($count\)](bg:overlay fg:iris)'
+deleted = '[✘\($count\)](style)'
+staged = '[++\($count\)](bg:overlay fg:gold)'
+ahead = '[⇡\(${count}\)](bg:overlay fg:foam)'
+diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foam)[⇣\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
+behind = '[⇣\(${count}\)](bg:overlay fg:rose)'
+
+[time]
+disabled = false
+format = " [](fg:overlay)[ $time  ]($style)[](fg:overlay)"
+style = "bg:overlay fg:rose"
+time_format = "%I:%M%P"
+use_12hr = true
 
 [username]
-show_always = true
-style_user = "green bold"
-style_root = "red bold"
-format = "[$user]($style) "
-
-[container]
-symbol = "📦"
-format = "[$symbol]($style) "
-style = "blue bold"
 disabled = false
+format = "[](fg:overlay)[ 󱜙 $user ]($style)[](fg:overlay) "
+show_always = true
+style_root = "bg:overlay fg:iris"
+style_user = "bg:overlay fg:iris"
 
-[bun]
-format = "via [$symbol]($style)"
+# Languages
 
-[buf]
-format = "via [$symbol]($style)"
-
-[cmake]
-format = "via [$symbol]($style)"
-
-[cobol]
-format = "via [$symbol]($style)"
-
-[crystal]
-format = "via [$symbol]($style)"
-
-[daml]
-format = "via [$symbol]($style)"
-
-[dart]
-format = "via [$symbol]($style)"
-
-[deno]
-format = "via [$symbol]($style)"
-
-[dotnet]
-format = "[$symbol(🎯 $tfm )]($style)"
+[c]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [elixir]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [elm]
-format = 'via [$symbol]($style)'
-
-[erlang]
-format = 'via [$symbol]($style)'
-
-[fennel]
-format = 'via [$symbol]($style)'
-
-[gleam]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [golang]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[gradle]
-format = 'via [$symbol]($style)'
-
-[haxe]
-format = 'via [$symbol]($style)'
-
-[helm]
-format = 'via [$symbol]($style)'
+[haskell]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [java]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [julia]
-format = 'via [$symbol]($style)'
-
-[kotlin]
-format = 'via [$symbol]($style)'
-
-[lua]
-format = 'via [$symbol]($style)'
-
-[meson]
-format = 'via [$symbol]($style)'
-
-[nim]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [nodejs]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰎙 "
 
-[ocaml]
-format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
-
-[opa]
-format = 'via [$symbol]($style)'
-
-[perl]
-format = 'via [$symbol]($style)'
-
-[pixi]
-format = 'via [$symbol($environment )]($style)'
-
-[php]
-format = 'via [$symbol]($style)'
-
-[pulumi]
-format = 'via [$symbol$stack]($style)'
-
-[purescript]
-format = 'via [$symbol]($style)'
-
-[python]
-format = 'via [$symbol]($style)'
-
-[quarto]
-format = 'via [$symbol]($style)'
-
-[raku]
-format = 'via [$symbol]($style)'
-
-[red]
-format = 'via [$symbol]($style)'
-
-[rlang]
-format = 'via [$symbol]($style)'
-
-[ruby]
-format = 'via [$symbol]($style)'
+[nim]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰆥 "
 
 [rust]
-format = 'via [$symbol]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[solidity]
-format = 'via [$symbol]($style)'
+[scala]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[typst]
-format = 'via [$symbol]($style)'
+[python]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = ' '
 
-[swift]
-format = 'via [$symbol]($style)'
-
-[vagrant]
-format = 'via [$symbol]($style)'
-
-[vlang]
-format = 'via [$symbol]($style)'
-
-[zig]
-format = 'via [$symbol]($style)'
+[conda]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
+disabled = false
+symbol = '🅒 '
+# add_newline = false
+#
+# format = """
+# $hostname\
+# $localip\
+# $shlvl\
+# $singularity\
+# $kubernetes\
+# $directory\
+# $vcsh\
+# $fossil_branch\
+# $fossil_metrics\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $hg_branch\
+# $pijul_channel\
+# $docker_context\
+# $package\
+# $c\
+# $cmake\
+# $cobol\
+# $daml\
+# $dart\
+# $deno\
+# $dotnet\
+# $elixir\
+# $elm\
+# $erlang\
+# $fennel\
+# $gleam\
+# $golang\
+# $guix_shell\
+# $haskell\
+# $haxe\
+# $helm\
+# $java\
+# $julia\
+# $kotlin\
+# $gradle\
+# $lua\
+# $nim\
+# $nodejs\
+# $ocaml\
+# $opa\
+# $perl\
+# $php\
+# $pulumi\
+# $purescript\
+# $python\
+# $quarto\
+# $raku\
+# $rlang\
+# $red\
+# $ruby\
+# $rust\
+# $scala\
+# $solidity\
+# $swift\
+# $terraform\
+# $typst\
+# $vlang\
+# $vagrant\
+# $zig\
+# $buf\
+# $nix_shell\
+# $conda\
+# $meson\
+# $spack\
+# $memory_usage\
+# $aws\
+# $gcloud\
+# $openstack\
+# $azure\
+# $nats\
+# $direnv\
+# $env_var\
+# $mise\
+# $crystal\
+# $custom\
+# $sudo\
+# $cmd_duration\
+# $line_break\
+# $jobs\
+# $battery\
+# $time\
+# $status\
+# $os\
+# $username\
+# $container\
+# $netns\
+# $shell\
+# $character"""
+#
+#
+# [username]
+# show_always = true
+# style_user = "green bold"
+# style_root = "red bold"
+# format = "[$user]($style) "
+#
+# [container]
+# symbol = "📦"
+# format = "[$symbol]($style) "
+# style = "blue bold"
+# disabled = false
+#
+# [bun]
+# format = "via [$symbol]($style)"
+#
+# [buf]
+# format = "via [$symbol]($style)"
+#
+# [cmake]
+# format = "via [$symbol]($style)"
+#
+# [cobol]
+# format = "via [$symbol]($style)"
+#
+# [crystal]
+# format = "via [$symbol]($style)"
+#
+# [daml]
+# format = "via [$symbol]($style)"
+#
+# [dart]
+# format = "via [$symbol]($style)"
+#
+# [deno]
+# format = "via [$symbol]($style)"
+#
+# [dotnet]
+# format = "[$symbol(🎯 $tfm )]($style)"
+#
+# [elixir]
+# format = 'via [$symbol]($style)'
+#
+# [elm]
+# format = 'via [$symbol]($style)'
+#
+# [erlang]
+# format = 'via [$symbol]($style)'
+#
+# [fennel]
+# format = 'via [$symbol]($style)'
+#
+# [gleam]
+# format = 'via [$symbol]($style)'
+#
+# [golang]
+# format = 'via [$symbol]($style)'
+#
+# [gradle]
+# format = 'via [$symbol]($style)'
+#
+# [haxe]
+# format = 'via [$symbol]($style)'
+#
+# [helm]
+# format = 'via [$symbol]($style)'
+#
+# [java]
+# format = 'via [$symbol]($style)'
+#
+# [julia]
+# format = 'via [$symbol]($style)'
+#
+# [kotlin]
+# format = 'via [$symbol]($style)'
+#
+# [lua]
+# format = 'via [$symbol]($style)'
+#
+# [meson]
+# format = 'via [$symbol]($style)'
+#
+# [nim]
+# format = 'via [$symbol]($style)'
+#
+# [nodejs]
+# format = 'via [$symbol]($style)'
+#
+# [ocaml]
+# format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
+#
+# [opa]
+# format = 'via [$symbol]($style)'
+#
+# [perl]
+# format = 'via [$symbol]($style)'
+#
+# [pixi]
+# format = 'via [$symbol($environment )]($style)'
+#
+# [php]
+# format = 'via [$symbol]($style)'
+#
+# [pulumi]
+# format = 'via [$symbol$stack]($style)'
+#
+# [purescript]
+# format = 'via [$symbol]($style)'
+#
+# [python]
+# format = 'via [$symbol]($style)'
+#
+# [quarto]
+# format = 'via [$symbol]($style)'
+#
+# [raku]
+# format = 'via [$symbol]($style)'
+#
+# [red]
+# format = 'via [$symbol]($style)'
+#
+# [rlang]
+# format = 'via [$symbol]($style)'
+#
+# [ruby]
+# format = 'via [$symbol]($style)'
+#
+# [rust]
+# format = 'via [$symbol]($style)'
+#
+# [solidity]
+# format = 'via [$symbol]($style)'
+#
+# [typst]
+# format = 'via [$symbol]($style)'
+#
+# [swift]
+# format = 'via [$symbol]($style)'
+#
+# [vagrant]
+# format = 'via [$symbol]($style)'
+#
+# [vlang]
+# format = 'via [$symbol]($style)'
+#
+# [zig]
+# format = 'via [$symbol]($style)'
