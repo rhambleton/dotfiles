@@ -11,9 +11,13 @@ return {
                 ensure_installed = { "lua_ls", "gopls" },
             }
             vim.diagnostic.config({
-                virtual_text = true, -- Shows errors inline
-                signs = true,        -- Shows error signs in gutter
-                underline = true,    -- Underlines problematic code
+                virtual_text = {
+                    wrap = true,
+                    spacing = 4,
+                    source = "if_many",
+                },
+                signs = true,     -- Shows error signs in gutter
+                underline = true, -- Underlines problematic code
                 update_in_insert = false,
             })
         end
