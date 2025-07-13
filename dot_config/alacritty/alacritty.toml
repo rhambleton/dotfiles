@@ -1,0 +1,10 @@
+general.import = ["~/.config/alacritty/rose-pine.toml"]
+
+[window]
+opacity = 0.95
+padding = { x = 10, y = 10 }
+
+[font]
+normal = {family = "JetBrainsMono Nerd Font", style="Bold" }
+size = 13
+offset =  { x = 1, y = 1 }
