@@ -38,6 +38,6 @@ eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
 aql() {
-    docker run --rm --network verstappen_default aerospike-tools aql --host aerospike-1 json -c "$*"
+    docker run --rm --network verstappen_default aerospike/aerospike-tools:5.2.0 aql --host aerospike-1 json -c "$*"
 }
 
