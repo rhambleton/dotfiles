@@ -24,7 +24,11 @@ $time\n  \
 [󱞪](fg:iris) \
 """
 
+{{- if eq .chezmoi.hostname "dalinar"}}
+palete = "brown-host"
+{{- else }}
 palette = "rose-pine-moon"
+{{- end }}
 
 [palettes.rose-pine-moon]
 overlay = '#393552'
@@ -34,6 +38,15 @@ rose = '#ea9a97'
 pine = '#3e8fb0'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
+
+[palettes.brown-host]
+overlay = '#3b2a20'
+love = '#d97757'
+gold = '#c9975b'
+rose = '#b56357'
+pine = '#8a5a3c'
+foam = '#c98a5a'
+iris = '#a86b3f'
 
 [directory]
 format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
