@@ -18,9 +18,6 @@ alias vim="nvim"
 alias gobench="find $(git rev-parse --show-toplevel) -name '*.go' | entr go test -bench=. -run=^$ -benchmem . -cpu 1 -count 2 -benchtime=100x"
 alias gotest="find $(git rev-parse --show-toplevel) -name '*.go' | entr go test -v ."
 
-# kitty and ssh don't play well without a little love
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-
 # Load starship
 eval "$(starship init zsh)"
 # Prompt Engineering Starship
